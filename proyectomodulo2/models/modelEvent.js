@@ -9,8 +9,8 @@ const eventSchema = new Schema({
   type: {type: String, enum: ['conference', 'meet up', 'courses', 'talks','other']},
   image: String,
   limit: Number,
-  creator: Number,
- 
+  creator: Schema.Types.ObjectId,
+
 }, {
   timestamps: {
     createdAt: "created_at",
