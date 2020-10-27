@@ -2,7 +2,7 @@
 
 ## Description
 
-Application made by women for women! The purpose of our application is to close the gender gap that exists in the tech industry, by helping women who work in the tech sector to network through events. Our main goal is to motivate more women to build businesses or to choose a career in the digital industry because we believe the future of tech is female  
+Application made by women for women! The purpose of our application is to close the gender gap that exists in the tech industry, by helping women who work in the tech sector to network through events. Our main goal is to motivate more women to build businesses or to choose a career in the digital industry because we believe the future of tech is female :) 
 
 ## User Stories
 
