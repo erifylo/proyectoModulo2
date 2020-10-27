@@ -20,5 +20,21 @@
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
-  }
+  },
+  "description": "Application made by women for women! The purpose of our application is to close the gender gap that exists in the tech industry, by helping women who work in the tech sector to network through events. Our main goal is to motivate more women to build businesses or to choose a career in the digital industry because we believe the future of tech is female ",
+  "main": "app.js",
+  "bin": {
+    "proyectomodulo2": "seeds.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erifylo/proyectoModulo2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erifylo/proyectoModulo2/issues"
+  },
+  "homepage": "https://github.com/erifylo/proyectoModulo2#readme"
 }
