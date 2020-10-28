@@ -68,6 +68,6 @@ const index = require('./routes/index');
 app.use('/', index);
 app.use('/', require('./routes/auth'))
 
-
+app.listen(3000, () => console.log('on port 3000'));
 
 module.exports = app;

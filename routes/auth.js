@@ -34,18 +34,18 @@ router.post('/signup', (req, res, next)=>{
   //checks signup
 
   if(nickName===""|| email==="" || password===""){
-    res.render('/auth/signup', {errorMessage: "there are empty fields, please correct them"})
+    res.render('auth/signup', {errorMessage: "there are empty fields, please correct them"})
     return;
   }
 
   User.findOne({"nickName":nickName}).then(user=>{
     if(user!==null){
-      res.render('/auth/sign',{errorMessage:"the user already exists"})
+      res.render('auth/signup',{errorMessage:"the user already exists"})
       return;
     }
     User.findOne({"email":email}).then(user=>{
       if(email!==null){
-        res.render('/auth/sign',{errorMessage:"This email is already registered, please use another"})
+        res.render('auth/signup',{errorMessage:"This email is already registered, please use another"})
       }
       return;
     });    
@@ -75,15 +75,11 @@ router.post('/login', (req, res, next)=>{
     res.render('auth/login',{errorMessage: "the user or the password are empty!"});
     return;
   }
-  User.findOne ({$or:[{"nickName":nickName}, {"email":email}]}).then(user=>{
+  User.findOne ({$or:[{"nickName":user}, {"email":user}]}).then(user=>{
     if(user===null){
       res.render('auth/login', {errorMessage:"The user doesn't exist!"});
       return;
-    }
-  })
-  .catch(error => {
-    next(error);
-  })
+    }  
   if(bcrypt.compareSync(password,user.password)){
     req.session.currentUser=user;
     res.redirect ("/");
@@ -91,6 +87,10 @@ router.post('/login', (req, res, next)=>{
   else{
     res.render('auth/login',{errorMessage: "the password is not correct!"});
   }
-  })
+})
+.catch(error => {
+  next(error);
+})
+})
 
 module.exports = router;
