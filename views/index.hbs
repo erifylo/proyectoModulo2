@@ -1,2 +1,35 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div>
+{{#if isUserLoggedIn}}
+
+<p> Hello, {{ currentUserInfo.name }}. </p>
+<div class="userOptions">
+  <div>
+    <h3> Events I am attending</h3>
+    <button><a href="/attendEvents">Go!</a></button>
+  </div>
+  <div>
+    <h3> Join a new event!</h3>
+    <button><a href="/allEvents">Go!</a></button>
+  </div>
+  <div>
+    <h3> Events that you have created</h3>
+    <button><a href="/myEventsCreated">Go!</a></button>
+  </div>
+</div>
+
+{{else}}
+{{!-- CENTER OF THE PAGE --}}
+<div class="mainPart">
+  <div>
+    <button><a href="/signup"> Join us!</a></button>
+  </div>
+</div>
+
+{{!-- EVENT PREVIEW --}}
+<div class="eventsPreview">
+  <div class="eachEvent">
+    {{!-- code for each event card preview --}}
+  </div>
+</div>
+{{/if}}
+</div>

@@ -6,7 +6,7 @@ const eventSchema = new Schema({
   description: String,
   date: Date,
   location: String,
-  type: {type: String, enum: ['conference', 'meet up', 'courses', 'talks','other']},
+  type: {type: String, enum: ['conference', 'meet up', 'course', 'talk','other']},
   image: String,
   limit: Number,
   creator: Schema.Types.ObjectId,
