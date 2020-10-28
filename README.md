@@ -74,6 +74,16 @@ Event model
   limit: Number,
   creator: Number,
 ```
+Attendee Model
+
+```
+
+eventId: Schema.Types.ObjectId,
+userId: Schema.Types.ObjectId,
+assistance: Boolean
+
+```
+
 ## Links
 
 ### Trello
