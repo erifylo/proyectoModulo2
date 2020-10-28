@@ -14,7 +14,7 @@ Application made by women for women! The purpose of our application is to close 
 
 - **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
 
-- ** events list ** - As a user I want to see all the events available so that I can choose which ones I want to attend
+- **events list** - As a user I want to see all the events available so that I can choose which ones I want to attend
 
 - **events create** - As a user I want to create an event 
 
@@ -30,7 +30,27 @@ List of other features outside of the MVPs scope
 
 ## ROUTES:
 
+## Server Routes (Back-end):
 
+| **Method** | **Route**                    | **Description**                                              | Request - Body                                            |
+| ---------- | ---------------------------- | ------------------------------------------------------------ | --------------------------------------------------------- |
+| `GET`      | `/`                          | Main page route. Renders home `index` view or `dashboard` if user is logged in                                           |
+| `GET`      | `/login`                     | Renders `login` form view.                                   |                                                           |
+| `POST`     | `/login`                     | Sends Login form data to the server.                         | { email, password }                                       |
+| `GET`      | `/signup`                    | Renders `signup` form view.                                  |                                                           |
+| `POST`     | `/signup`                    | Sends Sign Up info to the server and creates user in the DB. | { name, email, password, repeat password }                |
+| `GET`      | `/logout`                    | Logs user out of the page. Redirect to the `home`.           |                                                           |  
+|  `GET`     | `/allEvents`                | Private route. Renders `allEvents` form. view.               |                                                           | 
+| `GET`      | `/createEvents`              | Private route. Renders `createEvents` form view.             |                                                           |
+| `POST`     | `/createEvents`              | Private route. Renders `createEvents` form view, Sends edit-event info to server and updates user in DB. Redirects to `/myEvents`.   | {name, date, location, description, price, image, limit}  |
+| `GET`      | `/myEventsCreated`                  | Private route. Renders `myEvents` form view.                 |                                                           |
+| `POST`     | `/myEventsCreated/:id/editEvent`    | Private route. Sends edit-events of each event to server and updates it in DB. Redirects to `dashboard`. | {name, date, location, description, price, image, limit}       | 
+| `GET`      |  `/detailEvents/:id`         | Private Route. Render `detailEvents` view for the particular event.         |
+| `GET`      | `/attendEvents/`             | Private Route. Render `attendEvents` view.
+| `POST`     | `/attendEvents/`            | Private Route. Sends edit-event info to server and updates user in DB. | {assistance}                                    |
+
+  
+ 
 ## Models
 
 User model
