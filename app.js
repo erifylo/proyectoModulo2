@@ -12,6 +12,7 @@ const session      = require("express-session");
 const MongoStore   = require("connect-mongo")(session)
 
 
+
 mongoose
   .connect('mongodb://localhost/proyectomodulo2', {useNewUrlParser: true})
   .then(x => {
