@@ -24,12 +24,7 @@ router.get('/logout', (req, res, next) => {
   
 });
 
-router.get('/logout', (req, res, next) => {
-  req.session.destroy((el)=>{
-    res.redirect("/");
-  })
-  
-});
+
 
 //Llamada a la base de datos
 
