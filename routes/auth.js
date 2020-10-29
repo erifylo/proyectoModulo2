@@ -24,18 +24,32 @@ router.get('/logout', (req, res, next) => {
   
 });
 
+router.get('/logout', (req, res, next) => {
+  req.session.destroy((el)=>{
+    res.redirect("/");
+  })
+  
+});
+
 //Llamada a la base de datos
 
 router.post('/signup', (req, res, next)=>{
   const nickName = req.body.nickname;
   const email = req.body.email;
   const password= req.body.password;
+  const repeatPassword= req.body.repeatPassword;
 
   //checks signup
 
-  if(nickName===""|| email==="" || password===""){
+  if(nickName===""|| email==="" || password===""|| repeatPassword===""){
     res.render('auth/signup', {errorMessage: "there are empty fields, please correct them"})
     return;
+  }
+
+  if(password!=repeatPassword){
+    res.render ('auth/signup', {errorMessage:"Passwords do not match"})
+    return;
+
   }
 
   User.findOne({"nickName":nickName}).then(user=>{
@@ -50,6 +64,8 @@ router.post('/signup', (req, res, next)=>{
       return;
     });    
   });
+
+  
   const hashPassword = bcrypt.hashSync(password, salt);
   
   //Creamos el usuario en la base de datos
@@ -75,7 +91,7 @@ router.post('/login', (req, res, next)=>{
     res.render('auth/login',{errorMessage: "the user or the password are empty!"});
     return;
   }
-  User.findOne ({$or:[{"nickName":user}, {"email":user}]}).then(user=>{
+  User.findOne ({$or:[{"nickname":user}, {"email":user}]}).then(user=>{
     if(user===null){
       res.render('auth/login', {errorMessage:"The user doesn't exist!"});
       return;
