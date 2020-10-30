@@ -10,17 +10,18 @@ const Event = require('../models/modelEvent');
 
 
 
-router.get('/allEvents', (req, res, next) => {
+router.get ('/allEvents', (req, res, next)=>{
+  const event = {
+    "title":       req.query.title,
+    "city":        req.query.city,
+    "date":        req.query.date,
+    "type":        req.query.type,
+    "description": req.query.description,
+    "limit" :      req.query.limit
+  }
 
-  const typeEvent = req.query.filterType;
-  /* const dateEvent = req.query.date;
-  const cityEvent = req.query.city; */
-
-  //console.log(typeEvent);
-
-Event.find({'type': typeEvent})
+Event.find({'type': event.type})
     .then(eventsList => {
-      console.log(eventsList)
       res.render('allEvents', {eventsList});
     })
     .catch(error => {
