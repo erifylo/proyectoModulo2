@@ -2,11 +2,9 @@
 const express = require('express');
 const router  = express.Router();
 
-//const bcrypt  = require("bcrypt");
-//const User = require('../models/modelUser');
+
 const Event = require('../models/modelEvent');
-//const saltRounds = 10; 
-//const salt  = bcrypt.genSaltSync(saltRounds);
+
 
 
 
@@ -20,13 +18,17 @@ router.get ('/allEvents', (req, res, next)=>{
     "limit" :      req.query.limit
   }
 
-Event.find({'type': event.type})
+
+ Event.find({ $and: [ { 'type': event.type }, { 'date': event.date }, { 'city': event.city }  ] } )
+
     .then(eventsList => {
       res.render('allEvents', {eventsList});
     })
     .catch(error => {
       console.log('Error while retrieving events details:', error);
-    }); 
+    });  
+
+     
 });
 
 
