@@ -1,24 +1,41 @@
 <div>
+
   <h2>List of events</h2>
+
+<form action="/allEvents" method="get">
+
   <div class="dropdownMenu">
-    <ul>
-      <li>Type of event:</li>
-      <li>Conference</li>
-      <li>Meet up</li>
-      <li>Courses</li>
-      <li>Talks</li>
-      <li>Others</li>
-    </ul>
+    <span> Type of the event:</span>
+    <select name="filterType">
+      <option value="all">All</option>
+      <option value="conference">Conference</option>
+      <option value="meet up">Meet up</option>
+      <option value="courses">Courses</option>
+      <option value="talks">Talks</option>
+      <option value="others">Others</option>
+    </select>
   </div>
+
   <div class="dateSearch">
     <label for="date">Date:</label>
     <input type="date" id="date" name="date">
   </div>
+
   <div class="citySearch">
     <label for="gsearch">Search with City:</label>
     <input type="search" id="citySearch" name="city">
+    <button> Search!!</a></button>
   </div>
+
+</form>
+
+  {{#each eventsList}}
+  {{!-- después de la busqueda, la página nos tiene que devolver los resultados --}}
+  <div>
+    <p>{{this.title}}</p>
+    <p>{{this.date}}</p>
+    <p>{{this.location}}</p>
+  </div>
+
+  {{/each}}
 </div>
-
-
-{{!-- después de la busqueda, la página nos tiene que devolver los resultados --}}

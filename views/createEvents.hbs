@@ -14,10 +14,17 @@
         <input type="date" name="date" id="date-input" placeholder="Date">
     </div>
 
-     <div>
-        <label for="type-input"> Type: </label>
-        <input type="text" name="type" id="type-input" placeholder="conference, meet up, course, talk, other"> 
-    </div>
+    <div class="dropdownMenu">
+    <span> Type of the event:</span>
+    <select name="filterType">
+      <option value="all">All</option>
+      <option value="conference">Conference</option>
+      <option value="meet up">Meet up</option>
+      <option value="courses">Courses</option>
+      <option value="talks">Talks</option>
+      <option value="others">Others</option>
+    </select>
+  </div>
 
     
      <div>

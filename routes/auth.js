@@ -3,6 +3,7 @@ const router  = express.Router();
 
 const bcrypt  = require("bcrypt");
 const User = require('../models/modelUser');
+const Event = require('../models/modelEvent');
 const saltRounds = 10; 
 const salt  = bcrypt.genSaltSync(saltRounds);
 
@@ -24,12 +25,7 @@ router.get('/logout', (req, res, next) => {
   
 });
 
-router.get('/logout', (req, res, next) => {
-  req.session.destroy((el)=>{
-    res.redirect("/");
-  })
-  
-});
+
 
 //Llamada a la base de datos
 
@@ -108,5 +104,8 @@ router.post('/login', (req, res, next)=>{
   next(error);
 })
 })
+
+
+
 
 module.exports = router;
