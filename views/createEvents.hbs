@@ -1,7 +1,7 @@
 <form action="/createEvents" method="post">
     <div>
         <label for="title-input"> Title of the event: </label>
-        <input type="text" name="name" id="title-input" placeholder="Title">
+        <input type="text" name="title" id="title-input" placeholder="Title">
     </div>
 
     <div>
@@ -14,7 +14,7 @@
         <input type="date" name="date" id="date-input" placeholder="Date">
     </div>
 
-     <div class="dropdownMenu">
+      <div class="dropdownMenu">
         <span> Type of the event:</span>
              <select name="filterType">
                  <option value="all">All</option>
@@ -33,8 +33,14 @@
 
     <div>
         <label for="limit-input"> Limit of people: </label>
-        <input type="number" name="type" id="type-input" placeholder="Limit of people than can attend the event"> 
+        <input type="number" name="limit" id="type-input" placeholder="Limit of people than can attend the event"> 
     </div>
+
+    {{#if errorMessage}}
+  <p class="error-message">
+    {{ errorMessage }}
+  </p>
+{{/if}}
 
     <button> Publish your event!</button>
 </form>
