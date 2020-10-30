@@ -1,13 +1,17 @@
 <div>
   <h2>My events</h2>
   <div class="attendingContainer">
+    {{#each events}}
     <div class="attendingCard"> {{!-- the information of the cards will be inserted from the DB --}}
-      <h3>Title</h3>
-      <h2>Description</h2>
-      <h2>Date</h2>
-      <h2>List of participants</h2>
-      <button><a href="/">Cancel event</a></button>
-      <button><a href="/">Modify event</a></button>
+      <h3>{{this.title}}</h3>
+      <h2>{{this.description}}</h2>
+      <h2>{{this.date}}</h2>
+      <form action= "/delete" method="POST">
+      <input type="hidden" name="id" value="{{this._id}}">
+      <button>Cancel event</button>
+      </form>
+      <button><a href="/modifyEvents/{{this._id}}">Modify event</a></button>
     </div>
+    {{/each}}
   </div>
 </div>

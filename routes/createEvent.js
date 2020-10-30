@@ -13,7 +13,9 @@ router.post ('/createEvents', (req, res, next)=>{
     "date":        req.body.date,
     "type":        req.body.type,
     "description": req.body.description,
-    "limit" :      req.body.limit
+    "limit" :      req.body.limit,
+    "creator":     req.session.currentUser._id
+    
   }
 
   if(event.title===""|| event.city==="" || event.date===""|| event.type==="" ||event.description===""){
