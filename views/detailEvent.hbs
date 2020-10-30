@@ -1,0 +1,28 @@
+<div>
+  
+  <h2>Event Details!</h2>
+  <div class="seeMoreContainer">
+    <div class="seeMoreCard">
+
+      {{#each eventsListDos}}
+
+      <h3> {{this.title}}</h3>
+      <h2>{{this.city}}</h2>
+      <h2> {{this.date}}</h2>
+      <h2>{{this.description}}</h2>
+
+     
+    {{!--  <h2>{{this.userId}}</h2> --}}
+     
+      
+    </div>
+  </div>
+
+       <form action="/allEvents" method="POST">
+       <button class="attendButton">I want to attend!</button>
+       <input type="hidden" name="eventId" value="{{this._id}}"> 
+       </form>
+      {{/each}}
+      {{!-- maybe we can insert a map of the location--}}
+    
+</div>

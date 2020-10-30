@@ -31,8 +31,10 @@
 
   {{#each eventsList}}
   {{!-- después de la busqueda, la página nos tiene que devolver los resultados --}}
+
+
   <div>
-    <p>{{this.title}}</p>
+    <p><a href="/allEvents/{{_id}}">{{this.title}}</a></p>
     <p>{{this.date}}</p>
     <p>{{this.location}}</p>
   </div>
