@@ -5,7 +5,7 @@ const eventSchema = new Schema({
   title: String,
   description: String,
   date: Date,
-  location: String,
+  city: String,
   type: {type: String, enum: ['conference', 'meet up', 'course', 'talk','other']},
   image: String,
   limit: Number,
