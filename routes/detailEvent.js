@@ -6,7 +6,7 @@ const Attendee = require('../models/modelAttendees');
 
  router.get('/allEvents/:id', async(req,res,next)=>{
   let eventsListDos = await Event.findById(req.params.id);
-  /*   let theAttendees = await Attendee.find() */
+  /* LISTA PAX - HAY QUE HACERLO CON POPULATE!!! */
       
 
 
