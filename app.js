@@ -70,7 +70,9 @@ app.use('/', index);
 app.use('/', require('./routes/auth'))
 app.use('/', require('./routes/allEvents'))
 app.use('/', require('./routes/createEvent'))
+app.use('/', require('./routes/myEventsCreated'))
 app.use('/', require('./routes/detailEvent'))
+
 
 app.listen(3000, () => console.log('on port 3000'));
 
