@@ -14,7 +14,7 @@ const MongoStore   = require("connect-mongo")(session)
 
 
 mongoose
-  .connect('mongodb://localhost/proyectomodulo2', {useNewUrlParser: true})
+  .connect('process.env.MONGODB_URI', {useNewUrlParser: true, useUnifiedTopology:true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -43,7 +43,9 @@ app.use(require('node-sass-middleware')({
 }));
 
 app.use(session({
-  secret: "basic-auth-secret",
+  secret: process.env.SESSION_SECRET,
+  resave: true, 
+  saveUninitialized: false,
   cookie: { maxAge: 6000000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
