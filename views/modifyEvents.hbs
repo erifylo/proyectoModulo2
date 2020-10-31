@@ -1,4 +1,5 @@
-<form action="/createEvents" method="post">
+<form action="/modifyEvents" method="post">
+<input type="hidden" name="id" value="{{id}}">
     <div>
         <label for="title-input"> Title of the event: </label>
         <input type="text" name="title" id="title-input" value="{{title}}">
@@ -11,7 +12,7 @@
 
     <div>
         <label for="date-input"> Date: </label>
-        <input type="date" name="date" id="date-input" value="{{date}}">
+        <input type="date" name="date" id="date-input" >
     </div>
 
       <div class="dropdownMenu">
