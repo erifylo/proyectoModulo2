@@ -11,7 +11,7 @@ const salt  = bcrypt.genSaltSync(saltRounds);
 //Renderización
 
 router.get('/signup', (req, res, next) => {
-  res.render('auth/signUp', {layout: 'layoutNotLoggedIn.hbs'});
+  res.render('auth/signup', {layout: 'layoutNotLoggedIn.hbs'});
 });
 
 router.get('/login', (req, res, next) => {
