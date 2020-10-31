@@ -10,4 +10,11 @@ router.get('/attendEvents', (req, res, next)=>{
   
 })
 
+router.post('/notAttendEvents', (req, res, next)=>{
+  Attendee.deleteOne({$and:[{"userId":req.session.currentUser._id},{"eventId": req.body.id}]}).then(ele =>{
+     res.redirect("/attendEvents");
+    });
+});
+
+
 module.exports = router;
