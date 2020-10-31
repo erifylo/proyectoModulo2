@@ -20,11 +20,12 @@ router.get('/modifyEvents/:eventId',(req,res,next)=>{
       "title": obj.title,
       "city": obj.city,
       "date": date,
-      "type": obj.type,
+      "isConferenceSelected": obj.type == "conference",
+      "isMeetUpSelected": obj.type == "meet up",
+      "isCourseSelected": obj.type == "course",
+      "isTalkSelected": obj.type == "talk",
+      "isOtherSelected": obj.type == "other",
       "description": obj.description,
-      "creator": obj.creator,
-      "created_at": obj.created_at,
-      "updated_at": obj.updated_at
     }
     console.log(event)
     res.render('modifyEvents',event)
