@@ -10,7 +10,7 @@ const Attendee = require('../models/modelAttendees');
       
 
 
-  res.render('detailEvent', {eventsListDos});
+  res.render('detailEvent', eventsListDos);
 });
 
 
