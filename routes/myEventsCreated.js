@@ -14,7 +14,20 @@ router.get('/myEventsCreated', (req, res, next) => {
 router.get('/modifyEvents/:eventId',(req,res,next)=>{
   const id = req.params.eventId;  
   Event.findOne({"_id":id}).then(obj=>{
-    res.render('modifyEvents',obj)
+    const date = (JSON.stringify(obj.date).slice(1,11))
+    const event = {
+      "_id": obj._id,
+      "title": obj.title,
+      "city": obj.city,
+      "date": date,
+      "type": obj.type,
+      "description": obj.description,
+      "creator": obj.creator,
+      "created_at": obj.created_at,
+      "updated_at": obj.updated_at
+    }
+    console.log(event)
+    res.render('modifyEvents',event)
 
   })
   

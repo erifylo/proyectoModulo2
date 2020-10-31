@@ -11,13 +11,13 @@
 
     <div>
         <label for="date-input"> Date: </label>
-        <input type="date" name="date" id="date-input" placeholder="Date">
+        <input type="date" name="date" id="date-input" placeholder="Date" value="date">
     </div>
 
       <div class="dropdownMenu">
         <span> Type of the event:</span>
              <select name="type">
-                 <option value="all">All</option>
+                {{!--  <option value="all">All</option> --}}
                  <option value="conference">Conference</option>
                  <option value="meet up">Meet up</option>
                  <option value="course">Course</option>
@@ -31,10 +31,10 @@
         <input type="text" name="description" id="description-input" placeholder="Description:"> 
     </div>
 
-    <div>
+    {{!-- <div>
         <label for="limit-input"> Limit of people: </label>
         <input type="number" name="limit" id="type-input" placeholder="Limit of people than can attend the event"> 
-    </div>
+    </div> --}}
 
     {{#if errorMessage}}
   <p class="error-message">
