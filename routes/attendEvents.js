@@ -7,19 +7,18 @@ var dateFormat = require('dateformat');
 
 router.get('/attendEvents', (req, res, next)=>{
   Attendee.find({"userId":req.session.currentUser._id}).populate('eventId').exec((err, events)=>{
-    console.log(events)
+    
     const modifiedEvents = events.map(function (event) {
       return {
         "_id" : event.eventId._id,
         "title": event.eventId.title,
         "date" : dateFormat(event.eventId.date,"fullDate" ),
         "type" : event.eventId.type,
-        "city" : event.eventId.city,
-      
-    }
+        "city" : event.eventId.city
+      }
     })
-    console.log(modifiedEvents)
-    res.render('attendEvents', {modifiedEvents});
+
+    res.render('attendEvents', {modifiedEvents });
   })
   
 })
