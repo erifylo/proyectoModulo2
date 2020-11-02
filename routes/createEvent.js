@@ -2,6 +2,8 @@ const express = require('express');
 const router  = express.Router();
 const Event=require ('../models/modelEvent');
 
+
+
 router.get('/createEvents', (req, res, next) => {
   res.render('createEvents');
 });

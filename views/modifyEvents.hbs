@@ -1,5 +1,5 @@
 <form action="/modifyEvents" method="post">
-<input type="hidden" name="id" value="{{id}}">
+<input type="hidden" name="id" value="{{_id}}">
     <div>
         <label for="title-input"> Title of the event: </label>
         <input type="text" name="title" id="title-input" value="{{title}}">
@@ -12,18 +12,17 @@
 
     <div>
         <label for="date-input"> Date: </label>
-        <input type="date" name="date" id="date-input" >
+        <input type="date" name="date" id="date-input" value="{{date}}">
     </div>
 
       <div class="dropdownMenu">
         <span> Type of the event:</span>
-             <select name="type">
-                
-                 <option value="conference">Conference</option>
-                 <option value="meet up">Meet up</option>
-                 <option value="course">Course</option>
-                 <option value="talk">Talk</option>
-                 <option value="other">Other</option>
+             <select name="type" >
+                 <option value="conference" {{#if isConferenceSelected}}selected{{/if}}>Conference</option>
+                 <option value="meet up" {{#if isMeetUpSelected}}selected{{/if}}>Meet up</option>
+                 <option value="course" {{#if isCourseSelected}}selected{{/if}}>Course</option>
+                 <option value="talk" {{#if isTalkSelected}}selected{{/if}}>Talk</option>
+                 <option value="other" {{#if isOtherSelected}}selected{{/if}}>Other</option>
              </select>
      </div>
      <div>
