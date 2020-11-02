@@ -8,7 +8,17 @@ const Attendee = require('../models/modelAttendees');
   let eventsListDos = await Event.findById(req.params.id);
   /* LISTA PAX - HAY QUE HACERLO CON POPULATE!!! */
       
-
+  /* let modifiedEvents = await Event.findById({'eventId' : req.params.id}).populate('userId').exec((err, events)=>{
+    
+    const eventsListDos = events.map(function (event) {
+      return {
+        "_id" : event.eventId._id,
+        "title": event.eventId.title,
+        "date" : dateFormat(event.eventId.date,"fullDate" ),
+        "type" : event.eventId.type,
+        "city" : event.eventId.city
+      }
+    }) */
 
   res.render('detailEvent', eventsListDos);
 });
