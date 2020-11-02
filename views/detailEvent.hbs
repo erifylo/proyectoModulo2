@@ -13,15 +13,19 @@
   </div>
 
 
-      {{#if isGoing}}
-        You hava already signed up
-        {{else}}
+      {{!-- {{#if }}
+        You have already singed up for this event
+        {{else}} --}}
        <form action="/allEvents" method="POST">
        <button class="attendButton">I want to attend!</button>
        <input type="hidden" name="eventId" value="{{_id}}"> 
        </form>
-       {{/if}}
+       {{!-- {{/if}} --}}
 
-    
+    {{#if errorMessage}}
+  <p class="error-message">
+    {{ errorMessage }}
+  </p>
+{{/if}}
     
 </div>

@@ -15,23 +15,31 @@ const Attendee = require('../models/modelAttendees');
 
 
  router.post("/allEvents", (req, res, next) => {
+    
   const attendanceInfo = {
     eventId: req.body.eventId,
     userId: req.session.currentUser._id,
-    assistance: true,
   };
+
 
   const theAttendance = new Attendee(attendanceInfo);
 
-  theAttendance.save((err) => {
-/*     let isGoing = true
- */    if (err) {
-      next(err);
-      return;
+  Attendee.findOne({'userId' : req.session.currentUser._id }).then(user => {
+    
+    if (user !== null) {
+      res.render('detailEvent', {errorMessage : "already registered!"})
+      return ;
     }
-
-    res.redirect('/');
-  });
+    theAttendance.save((err) => {
+      if (err) {
+         next(err);
+         return;
+       }
+       res.redirect('/');
+     });
+  })
+  
+ 
 }); 
  
 
