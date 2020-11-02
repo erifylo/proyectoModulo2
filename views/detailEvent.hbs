@@ -1,5 +1,5 @@
 <div>
-
+  
   <h2>Event Details!</h2>
   <div class="seeMoreContainer">
     <div class="seeMoreCard">
@@ -7,20 +7,21 @@
       <h3> {{title}}</h3>
       <h2>{{city}}</h2>
       <h2> {{date}}</h2>
-      <h2>{{description}}</h2>
-
+      <h2>{{description}}</h2> 
+      
     </div>
   </div>
 
-  <form action="/allEvents" method="POST">
 
-    {{!-- {{#if assistance }} --}}
-    <button class="attendButton">I want to attend!</button>
-    {{!-- {{else}}
-    You are already attending this event
-    {{/if}}
-    <input type="hidden" name="eventId" value="{{_id}}"> --}}
-  </form>
+      {{#if isGoing}}
+        You hava already signed up
+        {{else}}
+       <form action="/allEvents" method="POST">
+       <button class="attendButton">I want to attend!</button>
+       <input type="hidden" name="eventId" value="{{_id}}"> 
+       </form>
+       {{/if}}
 
-
+    
+    
 </div>

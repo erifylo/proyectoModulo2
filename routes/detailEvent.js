@@ -2,7 +2,6 @@ const express = require('express');
 const router  = express.Router();
 const Event = require('../models/modelEvent');
 const Attendee = require('../models/modelAttendees');
-var dateFormat = require('dateformat');
 
 
  router.get('/allEvents/:id', async(req,res,next)=>{
@@ -23,15 +22,15 @@ var dateFormat = require('dateformat');
   };
 
   const theAttendance = new Attendee(attendanceInfo);
-  
+
   theAttendance.save((err) => {
-    
-    if (err) {
+/*     let isGoing = true
+ */    if (err) {
       next(err);
       return;
     }
 
-    res.redirect('/', );
+    res.redirect('/');
   });
 }); 
  
