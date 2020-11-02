@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const Event = require('../models/modelEvent');
 const Attendee = require('../models/modelAttendees');
+var dateFormat = require('dateformat');
 
 
  router.get('/allEvents/:id', async(req,res,next)=>{

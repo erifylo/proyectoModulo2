@@ -19,11 +19,12 @@ let condition = {
 }
 
 if (event.type != "all") {
-  condition.$and.push({"type" : event.type},)
+  condition.$and.push({"type" : event.type})
 } 
 
 if (event.date != "") {
-  condition.$and.push({"date" : event.date},)
+  condition.$and.push({"date" :event.date})
+  
 }
 
 if (event.city != "") {
@@ -35,8 +36,21 @@ if (event.city != "") {
  if (event.type == "all" && event.city == "" && event.date == "") {
   try {
     (async()=>{
-      const eventsList = await Event.find();
-      console.log(eventsList);
+      const eventsList = await Event.find()
+      
+      /* .then(eventsList=>{
+        const modifiedEvents = eventsList.map (function (event) {
+          return {
+            "_id" : event._id,
+            "title": event.title,
+            "city" : event.city,
+            "date" : dateFormat(event.date,"fullDate" ),
+            "type" : event.type,
+            "description" : event.description,
+        }
+        })
+        console.log(modifiedEvents) */
+
       res.render('allEvents', {eventsList});
     })();
   } catch (error) {
@@ -53,10 +67,6 @@ if (event.city != "") {
   });  
 }
 });
-
-
-
-
 
 
 

@@ -1,11 +1,24 @@
 const express = require('express');
 const router  = express.Router();
 const Event=require ('../models/modelEvent');
+var dateFormat = require('dateformat');
+const Attendee = require('../models/modelAttendees');
 
 //enseña todos los eventos creados por el usuario
 router.get('/myEventsCreated', (req, res, next) => {
   Event.find({"creator":req.session.currentUser._id}).then(events=>{
-    res.render('myEventsCreated',{events});
+    const modifiedEvents = events.map (function (event) {
+      return {
+        "_id" : event._id,
+        "title": event.title,
+        "city" : event.city,
+        "date" : dateFormat(event.date,"fullDate" ),
+        "type" : event.type,
+        "description" : event.description,
+    }
+    })
+
+    res.render('myEventsCreated',{modifiedEvents});
 
   })
 });
@@ -57,7 +70,10 @@ router.post('/modifyEvents', (req, res, next)=>{
 router.post('/delete', (req, res, next)=>{
   Event.deleteOne({"_id":req.body.id})
   .then(el=>{
-    res.redirect('/myEventsCreated')
+    Attendee.deleteMany({"eventId" :req.body.id}).then (ele => {
+      res.redirect('/myEventsCreated')
+    })
+  
   })
 })
 

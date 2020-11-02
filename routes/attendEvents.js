@@ -2,10 +2,24 @@ const express = require('express');
 const router  = express.Router();
 const Event = require('../models/modelEvent');
 const Attendee = require('../models/modelAttendees');
+var dateFormat = require('dateformat');
+
 
 router.get('/attendEvents', (req, res, next)=>{
   Attendee.find({"userId":req.session.currentUser._id}).populate('eventId').exec((err, events)=>{
-    res.render('attendEvents', {events});
+    console.log(events)
+    const modifiedEvents = events.map(function (event) {
+      return {
+        "_id" : event.eventId._id,
+        "title": event.eventId.title,
+        "date" : dateFormat(event.eventId.date,"fullDate" ),
+        "type" : event.eventId.type,
+        "city" : event.eventId.city,
+      
+    }
+    })
+    console.log(modifiedEvents)
+    res.render('attendEvents', {modifiedEvents});
   })
   
 })
