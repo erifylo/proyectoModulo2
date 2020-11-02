@@ -1,14 +1,14 @@
 <div>
   <h2>Events I am attending</h2>
-  {{#each events}}
+  {{#each modifiedEvents}}
   <div class="attendingContainer">
     <div class="attendingCard"> {{!-- the information of the cards will be inserted from the DB --}}
-      <h3>{{this.eventId.title}}</h3>
-      <h2>{{this.eventId.city}}</h2>
-      <h2>{{this.eventId.date}}</h2>
-     <a href="/allEvents/{{this.eventId._id}}"> See More</a>
+      <h3>{{this.title}}</h3>
+      <h2>{{this.city}}</h2>
+      <h2>{{this.date}}</h2>
+     <a href="/allEvents/{{this._id}}"> See More</a>
       <form action="/notAttendEvents" method="POST">
-      <input type="hidden" name="id" value={{this.eventId._id}}>
+      <input type="hidden" name="id" value={{this._id}}>
         <button>I will not attend</button>
       </form>
     </div>
