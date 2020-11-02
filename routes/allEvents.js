@@ -1,6 +1,7 @@
 
 const express = require('express');
 const router  = express.Router();
+var dateFormat = require('dateformat');
 
 const Event = require('../models/modelEvent');
 
@@ -35,10 +36,7 @@ if (event.city != "") {
 
  if (event.type == "all" && event.city == "" && event.date == "") {
   try {
-    (async()=>{
-      const eventsList = await Event.find()
-      
-      /* .then(eventsList=>{
+  Event.find().then(eventsList=>{
         const modifiedEvents = eventsList.map (function (event) {
           return {
             "_id" : event._id,
@@ -49,18 +47,27 @@ if (event.city != "") {
             "description" : event.description,
         }
         })
-        console.log(modifiedEvents) */
+        console.log(modifiedEvents)  
 
-      res.render('allEvents', {eventsList});
-    })();
+      res.render('allEvents', {modifiedEvents});
+
+    });
   } catch (error) {
     console.log(error.message);
   }
 }  else { 
-  Event.find( condition )
-
-  .then(eventsList => {
-    res.render('allEvents', {eventsList});
+  Event.find(condition).then(eventsList => {
+    const modifiedEvents = eventsList.map (function (event) {
+      return {
+        "_id" : event._id,
+        "title": event.title,
+        "city" : event.city,
+        "date" : dateFormat(event.date,"fullDate" ),
+        "type" : event.type,
+        "description" : event.description,
+    }
+    })
+    res.render('allEvents', {modifiedEvents});
   })
   .catch(error => {
     console.log('Error while retrieving events details:', error);
