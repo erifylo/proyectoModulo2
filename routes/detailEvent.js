@@ -23,14 +23,15 @@ var dateFormat = require('dateformat');
   };
 
   const theAttendance = new Attendee(attendanceInfo);
-
+  
   theAttendance.save((err) => {
+    
     if (err) {
       next(err);
       return;
     }
 
-    res.redirect('/');
+    res.redirect('/', );
   });
 }); 
  
