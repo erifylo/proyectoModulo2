@@ -70,10 +70,10 @@ router.post('/modifyEvents', (req, res, next)=>{
 router.post('/delete', (req, res, next)=>{
   Event.deleteOne({"_id":req.body.id})
   .then(el=>{
-    Attendee.deleteMany({"eventId" :req.body.id}).then (ele => {
+    Attendee.deleteMany({"eventId":req.body.id}).then(ele=>{
       res.redirect('/myEventsCreated')
     })
-  
+    
   })
 })
 
