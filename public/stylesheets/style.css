@@ -190,3 +190,33 @@ body {
 }
 
 /* Fin Dashboard */
+
+/* Index */
+
+.coverSection{
+  /*background-image: url("./Imagenes/pexels-karolina-grabowska-4199098.jpg");*/
+  height: 400px;
+  background-size: cover;
+  padding: 150px;
+  animation: animate 40s ease-in-out infinite ;
+}
+@keyframes animate{
+  0%, 100%{
+      background-image: url(/images/background/1.jpg);
+  }
+  15%{
+      background-image: url(/images/background/2.jpg);
+  }
+  30%{
+      background-image: url(/images/background/3.jpg);
+  }
+  45%{
+      background-image: url(/images/background/4.jpg);
+  }
+  60%{
+      background-image: url(/images/background/5.jpg);
+  }
+  75%{
+      background-image: url(/images/background/6.jpg);
+  }
+}
