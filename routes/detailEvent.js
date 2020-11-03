@@ -36,7 +36,7 @@ const dateFormat = require('dateformat');
 
   const theAttendance = new Attendee(attendanceInfo);
 
-  Attendee.findOne({'userId' : req.session.currentUser._id }).then(user => {
+  Attendee.findOne({$and:[{'userId' : req.session.currentUser._id },{"eventId": req.body.eventId}]}).then(user => {
     
     if (user !== null) {
       res.render('detailEvent', {errorMessage : "already registered!"})
