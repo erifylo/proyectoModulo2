@@ -194,13 +194,13 @@ body {
 /* Index */
 
 .coverSection{
-  /*background-image: url("./Imagenes/pexels-karolina-grabowska-4199098.jpg");*/
-  height: 400px;
+  background-image:url("../images/background/1.jpg");
+  height: 800px;
   background-size: cover;
-  padding: 150px;
-  animation: animate 40s ease-in-out infinite ;
+  padding: 150px
 }
-@keyframes animate{
+ 
+/* @keyframes animate{
   0%, 100%{
       background-image: url(/images/background/1.jpg);
   }
@@ -219,4 +219,7 @@ body {
   75%{
       background-image: url(/images/background/6.jpg);
   }
+  90%{
+    background-image: url(/images/background/7.jpg);
 }
+} */
