@@ -8,7 +8,12 @@
       <h2>{{city}}</h2>
       <h2> {{date}}</h2>
       <h2>{{description}}</h2> 
-      
+      {{#each attendees }}
+        <p>
+        {{this.userId.nickname}}
+        </p>
+
+      {{/each}}
     </div>
   </div>
 
