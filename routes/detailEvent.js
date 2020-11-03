@@ -3,6 +3,7 @@ const router  = express.Router();
 const Event = require('../models/modelEvent');
 const Attendee = require('../models/modelAttendees');
 const User = require('../models/modelUser');
+
 const dateFormat = require('dateformat');
 
  router.get('/allEvents/:id', (req,res,next)=>{
@@ -18,7 +19,6 @@ const dateFormat = require('dateformat');
       }
       res.render('detailEvent', modifiedEvent);
     }) 
-
 
     });
  });

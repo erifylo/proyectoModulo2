@@ -10,6 +10,7 @@ const eventSchema = new Schema({
   image: String,
   limit: Number,
   creator: Schema.Types.ObjectId,
+  userId: { type: Schema.Types.ObjectId , ref: 'User'  },
 
 }, {
   timestamps: {
