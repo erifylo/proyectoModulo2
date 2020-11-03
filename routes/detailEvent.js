@@ -2,15 +2,20 @@ const express = require('express');
 const router  = express.Router();
 const Event = require('../models/modelEvent');
 const Attendee = require('../models/modelAttendees');
+const User = require('../models/modelUser');
 
 
  router.get('/allEvents/:id', async(req,res,next)=>{
   let eventsListDos = await Event.findById(req.params.id);
+ 
   /* LISTA PAX - HAY QUE HACERLO CON POPULATE!!! */
       
-  /* let modifiedEvents = await Event.findById({'eventId' : req.params.id}).populate('userId').exec((err, events)=>{
-    
-    const eventsListDos = events.map(function (event) {
+
+  //PRUEBAS //
+  /* Event.find({'eventId' : req.params.id})
+  .populate('userId')
+  .exec((err, events)=>{
+      const eventsListDos = events.map(function (event) {
       return {
         "_id" : event.eventId._id,
         "title": event.eventId.title,
@@ -18,7 +23,10 @@ const Attendee = require('../models/modelAttendees');
         "type" : event.eventId.type,
         "city" : event.eventId.city
       }
-    }) */
+    }) 
+   */
+    
+    //PRUEBAS END //
 
   res.render('detailEvent', eventsListDos);
 });
