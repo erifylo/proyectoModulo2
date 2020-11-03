@@ -1,8 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Event=require ('../models/modelEvent');
-var dateFormat = require('dateformat');
-const Attendee = require('../models/modelAttendees');
+const Attendee=require ('../models/modelAttendees');
 
 //enseña todos los eventos creados por el usuario
 router.get('/myEventsCreated', (req, res, next) => {
