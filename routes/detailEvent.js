@@ -2,26 +2,26 @@ const express = require('express');
 const router  = express.Router();
 const Event = require('../models/modelEvent');
 const Attendee = require('../models/modelAttendees');
+const User = require('../models/modelUser');
+const dateFormat = require('dateformat');
 
-
- router.get('/allEvents/:id', async(req,res,next)=>{
-  let eventsListDos = await Event.findById(req.params.id);
-  /* LISTA PAX - HAY QUE HACERLO CON POPULATE!!! */
-      
-  /* let modifiedEvents = await Event.findById({'eventId' : req.params.id}).populate('userId').exec((err, events)=>{
-    
-    const eventsListDos = events.map(function (event) {
-      return {
-        "_id" : event.eventId._id,
-        "title": event.eventId.title,
-        "date" : dateFormat(event.eventId.date,"fullDate" ),
-        "type" : event.eventId.type,
-        "city" : event.eventId.city
+ router.get('/allEvents/:id', (req,res,next)=>{
+  let eventsListDos = Event.findById(req.params.id).then(event=>{
+    Attendee.find({"eventId":req.params.id}).populate('userId').exec((err,attendees)=>{
+      const modifiedEvent = {
+        "_id" : event._id,
+        "title": event.title,
+        "date" : dateFormat(event.date,"fullDate" ),
+        "type" : event.type,
+        "city" : event.city,
+        "attendees":attendees
       }
-    }) */
+      res.render('detailEvent', modifiedEvent);
+    }) 
 
-  res.render('detailEvent', eventsListDos);
-});
+
+    });
+ });
 
 
  router.post("/allEvents", (req, res, next) => {
@@ -31,6 +31,7 @@ const Attendee = require('../models/modelAttendees');
     userId: req.session.currentUser._id,
   
   };
+
 
 
   const theAttendance = new Attendee(attendanceInfo);
