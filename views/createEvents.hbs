@@ -1,46 +1,41 @@
-<form action="/createEvents" method="post">
-    <div>
-        <label for="title-input"> Title of the event: </label>
-        <input type="text" name="title" id="title-input" placeholder="Title">
-    </div>
+<div id="createEvents">
+    <section class="search">
+        <form action="/createEvents" method="post">
+            <div class="form-field">
+                <label for="title-input">Title of the event:</label>
+                <input type="search" name="title">
+            </div>
+            <div class="form-field">
+                <label for="city-input"> City: </label>
+                <input type="text" name="city" id="city-input" >
+            </div>
+            <div class="form-field">
+                <label for="date-input"> Date: </label>
+                <input type="date" name="date" id="date-input" value="date">
+            </div>
 
-    <div>
-        <label for="city-input"> City: </label>
-        <input type="text" name="city" id="city-input" placeholder="City">
-    </div>
+            <label class="form-field" for="type">Type:</label>
+            <select class="form-field" name="type">
+                <option value="all">All</option>
+                <option value="conference">Conference</option>
+                <option value="meet up">Meet up</option>
+                <option value="course">Course</option>
+                <option value="talk">Talk</option>
+                <option value="other">Other</option>
+            </select>
 
-    <div>
-        <label for="date-input"> Date: </label>
-        <input type="date" name="date" id="date-input" placeholder="Date" value="date">
-    </div>
+            <div class="form-field">
+                <label for="description-input"> Description: </label>
+               <textarea name="description" id="description-input" ></textarea>
+            </div>
 
-      <div class="dropdownMenu">
-        <span> Type of the event:</span>
-             <select name="type">
-                {{!--  <option value="all">All</option> --}}
-                 <option value="conference">Conference</option>
-                 <option value="meet up">Meet up</option>
-                 <option value="course">Course</option>
-                 <option value="talk">Talk</option>
-                 <option value="other">Other</option>
-             </select>
-     </div>
-    
-     <div>
-        <label for="description-input"> Description: </label>
-        <input type="textarea" name="description" id="description-input" placeholder="Description:"> 
-    </div>
-
-    {{!-- <div>
-        <label for="limit-input"> Limit of people: </label>
-        <input type="number" name="limit" id="type-input" placeholder="Limit of people than can attend the event"> 
-    </div> --}}
-
-    {{#if errorMessage}}
-  <p class="error-message">
-    {{ errorMessage }}
-  </p>
-{{/if}}
-
-    <button> Publish your event!</button>
-</form>
+            {{#if errorMessage}}
+            <p class="error-message">
+                {{ errorMessage }}
+            </p>
+            {{/if}}
+            <button> Publish your event!</button>
+        </form>
+    </section>
+</div>
+   
