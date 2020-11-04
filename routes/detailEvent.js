@@ -15,7 +15,8 @@ const dateFormat = require('dateformat');
         "date" : dateFormat(event.date,"fullDate" ),
         "type" : event.type,
         "city" : event.city,
-        "attendees":attendees
+        "attendees":attendees,
+        "description":event.description,
       }
       res.render('detailEvent', modifiedEvent);
     }) 
@@ -31,8 +32,6 @@ const dateFormat = require('dateformat');
     userId: req.session.currentUser._id,
   
   };
-
-
 
   const theAttendance = new Attendee(attendanceInfo);
 

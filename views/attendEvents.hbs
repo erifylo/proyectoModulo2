@@ -9,12 +9,12 @@
         <p class="card__text">{{this.city}}</p>
         <p class="card__text">{{this.date}}</p>
         </div>
-        <div class="flex">
+        <div class="flex createEventsbuttons">
         <form action="/notAttendEvents" method="POST">
           <input type="hidden" name="id" value={{this._id}}> 
-          <button class="blue" onclick="window.location='/allEvents/{{this._id}}'"> See More</button>
           <button >Not attend</button>
         </form>
+        <button class="blue" onclick="window.location='/allEvents/{{this._id}}'"> See More</button>
         </div>
       
   </div>
