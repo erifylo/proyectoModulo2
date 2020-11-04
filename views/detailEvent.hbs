@@ -1,34 +1,30 @@
 <div>
-  
   <h2>Event Details!</h2>
-  <div class="seeMoreContainer">
-    <div class="seeMoreCard">
-
+  <div class="detailEvent">
+    <div>
+  <img src="/images/background/5.png">
+  </div>
+    <div>
       <h3> {{title}}</h3>
       <h2>{{city}}</h2>
       <h2> {{date}}</h2>
-      <h2>{{description}}</h2> 
+      <h2>{{description}}</h2>
       {{#each attendees }}
-        <p>
+      <p>
         {{this.userId.nickname}}
-        </p>
-
+      </p>
       {{/each}}
     </div>
+
   </div>
-
-
-    
-       <form action="/allEvents" method="POST">
-       <button class="attendButton">I want to attend!</button>
-       <input type="hidden" name="eventId" value="{{_id}}"> 
-       </form>
-  
-
-    {{#if errorMessage}}
+  <form action="/allEvents" method="POST">
+    <button>I want to attend!</button>
+    <input type="hidden" name="eventId" value="{{_id}}">
+  </form>
+  {{#if errorMessage}}
   <p class="error-message">
     {{ errorMessage }}
   </p>
-{{/if}}
-    
+  {{/if}}
+  
 </div>
