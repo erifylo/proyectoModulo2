@@ -50,10 +50,6 @@ body {
   z-index: 500;
 }
 
-.top-nav-bar {
-  background-color: transparent !important;
-}
-
 .nav-bar-div {
   height: 100%;
 }
@@ -280,6 +276,7 @@ button {
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   margin: 10px;
+  cursor: pointer;
 }
 
 button:active {
@@ -452,7 +449,7 @@ input {
   height: 550px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   justify-content: space-between;
 }
 
@@ -488,6 +485,10 @@ input {
   display: flex;
   margin: 20px;
   justify-content: center;
+}
+
+.attendees{
+  display: flex;
 }
 
 @media screen and (max-width: 1300px) {
@@ -578,7 +579,7 @@ input {
   margin: 100px;
 }
 
-#createEventsbuttons {
+.createEventsbuttons {
   display: flex;
   flex-direction: column;
 }
@@ -587,6 +588,44 @@ input {
   margin: 100px;
 }
 
+
+.seeMoreContainer{
+display: flex;
+padding-top: 100px;
+
+}
+.seeMoreContainer img{
+  height: 500px;
+}
+
+.seeMoreCard{
+  padding-left: 50px;
+}
+
+#buttondetail{
+background-color: transparent;
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  font-weight: 300;
+  line-height: 60px;
+  margin: 10px 0;
+}
+
+.description {
+  margin-top: 20px;
+  min-height: 50%;
+  max-width: 600px;  
+}
+
+.card-description {
+  display: inline-block;
+  font-weight: 300;
+  line-height: 22px;
+  margin: 10px 0;
+}
 
 
 

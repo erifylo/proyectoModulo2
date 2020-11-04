@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }, false);
 
 
-window.addEventListener("scroll", function() {
+/* window.addEventListener("scroll", function() {
   scrollNav()			
 })
 
@@ -17,4 +17,4 @@ function scrollNav() {
       nav.classList.remove("top-nav-bar")
   else
       nav.classList.add("top-nav-bar") 
-}
+} */
