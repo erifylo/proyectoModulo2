@@ -9,15 +9,14 @@
       <p class="card__text">{{this.description}}</p>
       <p class="card__text">{{this.date}}</p>
       </div>
-        <div class="flex">
-          <div id= "createEventsbuttons">
+          <div  class="flex createEventsbuttons">
           <form action= "/delete" method="POST">
             <input type="hidden" name="id" value="{{this._id}}">
             <button class="blue">Cancel event</button>
           </form>
-          <button  onclick="window.location='/modifyEvents/{{this._id}}'"> Modify Event</button>
+          <button onclick="window.location='/modifyEvents/{{this._id}}'"> Modify Event</button>
           </div>
-      </div>
+
       </div>
     {{/each}}
   </div>

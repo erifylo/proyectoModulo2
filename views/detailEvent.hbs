@@ -1,19 +1,22 @@
 <div>
-
   <h2 class="h2-subtitles">Event Details!</h2>
   <div class="seeMoreContainer">
     <div><img src="/images/background/6.png"></div>
     <div class="seeMoreCard">
-      <h2> {{title}}</h2>
+      <h2 class="card-title"> {{title}}</h2>
       <p>{{city}}</p>
       <p> {{date}}</p>
-      <p>{{description}}</p> 
+      <div class="description">
+        <span class="card-description">{{description}}</span> 
+      </div>
       <p>Girls joining this event:</p>
+      <div class="attendees">
       {{#each attendees }}
         <p> 
         {{this.userId.nickname}}
         </p>
       {{/each}}
+      </div>
     </div>
   </div>
        <form id="buttondetail" action="/allEvents" method="POST">

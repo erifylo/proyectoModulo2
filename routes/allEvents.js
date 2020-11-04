@@ -47,7 +47,7 @@ if (event.city != "") {
             "description" : event.description,
         }
         })
-        console.log(modifiedEvents)  
+
 
       res.render('allEvents', {modifiedEvents});
 
