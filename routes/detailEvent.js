@@ -17,6 +17,7 @@ const dateFormat = require('dateformat');
         "city" : event.city,
         "attendees":attendees,
         "description":event.description,
+        "image":event.image
       }
       res.render('detailEvent', modifiedEvent);
     }) 

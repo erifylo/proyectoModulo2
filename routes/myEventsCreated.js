@@ -15,6 +15,7 @@ router.get('/myEventsCreated', (req, res, next) => {
         "date" : dateFormat(event.date,"fullDate" ),
         "type" : event.type,
         "description" : event.description,
+        "image": event.image
     }
     })
 
@@ -38,7 +39,7 @@ router.get('/modifyEvents/:eventId',(req,res,next)=>{
       "isCourseSelected": obj.type == "course",
       "isTalkSelected": obj.type == "talk",
       "isOtherSelected": obj.type == "other",
-      "description": obj.description,
+      "description": obj.description            
     }
     console.log(event)
     res.render('modifyEvents',event)
@@ -46,6 +47,22 @@ router.get('/modifyEvents/:eventId',(req,res,next)=>{
   })
   
 })
+
+function getImageByType(type)
+{
+  switch(type){
+    case "conference":
+      return "/images/Conference/conference.jpg";      
+    case  "meet up":
+      return "/images/Meetups/meetUp.jpg";
+    case "course":
+      return "/images/Courses/course.jpg";
+    case "talk":
+      return "/images/Talks/talk.jpg";
+    case "other":
+      return "/images/Others/other.jpg";
+  }
+}
 
 
 router.post('/modifyEvents', (req, res, next)=>{
@@ -56,6 +73,7 @@ router.post('/modifyEvents', (req, res, next)=>{
     "type":        req.body.type,
     "description": req.body.description,
     "limit" :      req.body.limit,
+    "image":       getImageByType(req.body.type)   
   }
   
   Event.findByIdAndUpdate({"_id":req.body.id},event).then(el=>{

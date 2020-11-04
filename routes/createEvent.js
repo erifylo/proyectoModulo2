@@ -16,8 +16,8 @@ router.post ('/createEvents', (req, res, next)=>{
     "type":        req.body.type,
     "description": req.body.description,
     "limit" :      req.body.limit,
-    "creator":     req.session.currentUser._id
-    
+    "creator":     req.session.currentUser._id,
+    "image":       getImageByType(req.body.type)     
   }
 
   if(event.title===""|| event.city==="" || event.date===""|| event.type==="" ||event.description===""){
@@ -34,4 +34,21 @@ router.post ('/createEvents', (req, res, next)=>{
     res.redirect("/myEventsCreated");
   });
 })
+
+function getImageByType(type)
+{
+  switch(type){
+    case "conference":
+      return "/images/Conference/conference.jpg";      
+    case  "meet up":
+      return "/images/Meetups/meetUp.jpg";
+    case "course":
+      return "/images/Courses/course.jpg";
+    case "talk":
+      return "/images/Talks/talk.jpg";
+    case "other":
+      return "/images/Others/other.jpg";
+  }
+}
+
 module.exports = router;

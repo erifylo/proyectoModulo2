@@ -45,6 +45,7 @@ if (event.city != "") {
             "date" : dateFormat(event.date,"fullDate" ),
             "type" : event.type,
             "description" : event.description,
+            "image": event.image
         }
         })
 
@@ -65,6 +66,7 @@ if (event.city != "") {
         "date" : dateFormat(event.date,"fullDate" ),
         "type" : event.type,
         "description" : event.description,
+        "image": event.image
     }
     })
     res.render('allEvents', {modifiedEvents});
