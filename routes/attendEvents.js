@@ -14,7 +14,8 @@ router.get('/attendEvents', (req, res, next)=>{
         "title": event.eventId.title,
         "date" : dateFormat(event.eventId.date,"fullDate" ),
         "type" : event.eventId.type,
-        "city" : event.eventId.city
+        "city" : event.eventId.city,
+        "image": event.eventId.image
       }
     })
 
