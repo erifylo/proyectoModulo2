@@ -39,16 +39,37 @@ const dateFormat = require('dateformat');
   Attendee.findOne({$and:[{'userId' : req.session.currentUser._id },{"eventId": req.body.eventId}]}).then(user => {
     
     if (user !== null) {
-      res.render('detailEvent', {errorMessage : "already registered!"})
-      return ;
+
+      Event.findById(req.body.eventId).then(event=>{
+        Attendee.find({"eventId":req.body.eventId}).populate('userId').exec((err,attendees)=>{
+          const modifiedEvent = {
+            "_id" : event._id,
+            "title": event.title,
+            "date" : dateFormat(event.date,"fullDate" ),
+            "type" : event.type,
+            "city" : event.city,
+            "attendees":attendees,
+            "description":event.description,
+            "image":event.image,
+            "errorMessage" : "already registered!"
+          }
+          console.log(modifiedEvent)
+          res.render('detailEvent', modifiedEvent);
+          return ;
+        }) 
+    
+        });
+    
     }
-    theAttendance.save((err) => {
-      if (err) {
-         next(err);
-         return;
-       }
-       res.redirect('/');
+    else{
+      theAttendance.save((err) => {
+        if (err) {
+           next(err);
+          return;
+        }
+      res.redirect('/');
      });
+    }
   })
   
  
