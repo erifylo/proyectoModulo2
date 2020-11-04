@@ -20,6 +20,7 @@ router.get('/', (req, res, next) => {
                   "date" : dateFormat(event.date,"fullDate" ),
                   "type" : event.type,
                   "description" : event.description,
+                  "image": event.image
               }
               })
       
