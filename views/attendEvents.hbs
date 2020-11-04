@@ -1,5 +1,5 @@
 <div>
-  <h2>Events I am attending</h2>
+  <h2 class="h2-subtitles">Events I am attending</h2>
   <div class="grid">
   {{#each modifiedEvents}}
   <div class="grid__item">
@@ -10,9 +10,9 @@
         <p class="card__text">{{this.date}}</p>
         </div>
         <div class="flex">
-        <button onclick="window.location='/allEvents/{{this._id}}'"> See More</button>
         <form action="/notAttendEvents" method="POST">
-          <input type="hidden" name="id" value={{this._id}}>
+          <input type="hidden" name="id" value={{this._id}}> 
+          <button class="blue" onclick="window.location='/allEvents/{{this._id}}'"> See More</button>
           <button >Not attend</button>
         </form>
         </div>
