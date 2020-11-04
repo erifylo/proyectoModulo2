@@ -24,6 +24,20 @@ body {
   padding: calc(var(--base-grid) * 5);
 }
 
+.banner-title {
+  margin: 80px 130px;
+  color:  var(--colour-body-background);
+}
+
+.banner-title h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.banner-title h1 span {
+  color: var(--colour-background);
+}
+
 .h2-subtitles {
   padding-top: 50px;
   font-size: 40px;
@@ -201,25 +215,13 @@ body {
 }
 
 .coverSection {
-  background-image: url("../images/background/1.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url("../images/background/1.jpg");
   height: 800px;
   background-size: cover;
+  background-position: center;
   padding: 150px;
 }
 
-.coverSection button {
-  border-radius: 20px;
-  border: 1px solid var(--colour-background-folded);
-  background-color: var(--colour-body-background);
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 12px 45px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: transform 80ms ease-in;
-  text-decoration: none;
-}
 
 .form-container h1 {
   font-weight: bold;

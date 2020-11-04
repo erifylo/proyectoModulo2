@@ -1,5 +1,7 @@
 const express = require('express');
 const router  = express.Router();
+var dateFormat = require('dateformat');
+const Event = require('../models/modelEvent');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -8,10 +10,31 @@ router.get('/', (req, res, next) => {
     res.render('dashboard',  req.session.currentUser)
   }
   else{
-    res.render('index', { layout: 'layoutNotLoggedIn.hbs' });
+      try {
+        Event.find().then(eventsList=>{
+              const modifiedEvents = eventsList.map (function (event) {
+                return {
+                  "_id" : event._id,
+                  "title": event.title,
+                  "city" : event.city,
+                  "date" : dateFormat(event.date,"fullDate" ),
+                  "type" : event.type,
+                  "description" : event.description,
+              }
+              })
+      
+      
+              res.render('index', { modifiedEvents,  layout: 'layoutNotLoggedIn.hbs' });
 
+      
+          });
+        } catch (error) {
+          console.log(error.message);
+        }
+
+   
   }
- 
+
  
 });
 
