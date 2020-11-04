@@ -588,5 +588,24 @@ input {
 }
 
 
+.seeMoreContainer{
+display: flex;
+padding-top: 100px;
+}
+.seeMoreContainer img{
+  height: 500px;
+}
+
+.seeMoreCard{
+  margin: 50px;
+  padding: 50px;
+}
+
+#buttondetail{
+background-color: transparent;
+}
+
+
+
 
 
