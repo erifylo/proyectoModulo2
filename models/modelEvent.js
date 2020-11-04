@@ -10,6 +10,7 @@ const eventSchema = new Schema({
   image: String,
   limit: Number,
   creator: Schema.Types.ObjectId,
+  image:String
 
 }, {
   timestamps: {

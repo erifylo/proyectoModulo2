@@ -311,6 +311,10 @@ form {
   text-align: center;
 }
 
+form textarea {
+  height: 125px;
+}
+
 input {
   background-color: #eee;
   border: none;
@@ -493,6 +497,10 @@ input {
   display: flex;
 }
 
+.attendees p{
+  margin: 0 10px;
+}
+
 @media screen and (max-width: 1300px) {
   .nav-bar a {
     font-size: 20px;
@@ -597,7 +605,7 @@ padding-top: 100px;
 
 }
 .seeMoreContainer img{
-  height: 500px;
+  max-height: 500px;
 }
 
 .seeMoreCard{
