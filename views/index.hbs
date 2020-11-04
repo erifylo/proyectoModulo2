@@ -3,7 +3,7 @@
 
   <section class="coverSection">
       <div class = "banner-title">
-        <h1> Woman In Tech  <span> because computing <br> is too important</span>  to be left to men </h1>
+        <h1> Women In Tech  <span> because computing <br> is too important</span>  to be left to men </h1>
         <button onclick="window.location='/signup'"> Join us!</button>
     </div>
   </section>
@@ -12,7 +12,7 @@
 <div class="grid">
   {{#each modifiedEvents}}
 <div class="grid__item">
-      <img class="card__img"  src="images/background/2.jpg"/>
+      <img class="card__img"  src="{{this.image}}"/>
       <div class="card__content"> 
         <h3 class="card__header">{{this.title}}</h3>
         <p class="card__text">{{this.city}}</p>
