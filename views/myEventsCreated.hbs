@@ -1,17 +1,39 @@
 <div>
-  <h2>My events</h2>
-  <div class="attendingContainer">
+  <h2 class="h2-subtitles">My events</h2>
+  <div class="grid">
     {{#each modifiedEvents}}
-    <div class="attendingCard"> {{!-- the information of the cards will be inserted from the DB --}}
-      <h3>{{this.title}}</h3>
-      <h2>{{this.description}}</h2>
-      <h2>{{this.date}}</h2>
-      <form action= "/delete" method="POST">
-      <input type="hidden" name="id" value="{{this._id}}">
-      <button>Cancel event</button>
-      </form>
-      <button><a href="/modifyEvents/{{this._id}}">Modify event</a></button>
-    </div>
+    <div class="grid__item">
+      <img class="card__img"  src="images/background/3.jpg"/>
+      <div class="card__content"> 
+      <h3 class="card__header">{{this.title}}</h3>
+      <p class="card__text">{{this.description}}</p>
+      <p class="card__text">{{this.date}}</p>
+      </div>
+        <div class="flex">
+          <form action= "/delete" method="POST">
+            <input type="hidden" name="id" value="{{this._id}}">
+            <button class="blue">Cancel event</button>
+            <button  onclick="window.location='/modifyEvents/{{this._id}}'"> Modify Event</button>
+
+          </form>
+
+      </div>
+    
+      </div>
     {{/each}}
   </div>
 </div>
+
+
+
+ 
+  
+      
+      
+        
+        
+        
+        
+       
+        
+  
