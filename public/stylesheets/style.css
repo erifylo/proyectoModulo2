@@ -720,7 +720,7 @@ background-color: transparent;
       text-align: center;
       display: block;
       flex: 1 1 100%;
-      color: $white;
+      color: var(--color-text-subtitulos);
       padding: 1em;
 }
 
@@ -751,6 +751,15 @@ background-color: transparent;
       z-index: 1;
     }
 
+    .logosCareer {
+      display: flex;
+    justify-content: space-evenly;
+    padding-top: 40px;
+    }
+
+    .logosCareer img {
+      height: 120px;
+    }
 
  @keyframes var(--colour-background) {
 	0% {
@@ -785,6 +794,8 @@ background-color: transparent;
     display: inline;
   }
 }
+
+
 
 /* END OF CAREER SECTION
  */@media screen and (max-width: 1300px) {
@@ -931,6 +942,19 @@ background-color: transparent;
   .banner-title h1 {
     font-size: 20px;
     margin-bottom: 30px;
+}
+
+.logosCareer img {
+  height: 50px;
+}
+
+#media-h2-subtitles {
+  font-size: 15px;
+    margin-left: 40px;
+}
+
+.card {
+  margin-bottom: 15px;
 }
 
 }
