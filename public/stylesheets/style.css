@@ -622,6 +622,38 @@ background-color: transparent;
   font-size: 50px;
 }
 
+.footer{
+  padding-top: 20px;
+  padding-bottom: 30px;
+  margin-right: -15px;
+  margin-left: -15px;
+  background-color: rgb(16, 39, 53);
+  color: white;
+  
+}
+.footer-texto{
+   text-align: center;
+}
+.footer-div{
+margin-top: 50px;grid-row: ;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+  
+}
+.footer-ul{
+list-style: none;
+padding: 0;
+}
+.map-frame{
+height: 500px;
+width: 200px;
+}
+
+.footer-ul span{
+color: white;
+}
+
 @media screen and (max-width: 1300px) {
   body {
     padding: 0;
