@@ -71,6 +71,7 @@ router.post('/signup', (req, res, next)=>{
     "email": email,
     "password": hashPassword
   }).then(ele=>{
+    req.session.currentUser=ele;
     res.redirect("/");
   });
 
