@@ -1,0 +1,40 @@
+<h2> Career Events</h2>
+<section>
+  <h3>Companies commited to diversity</h3>
+  <div>
+    <img src="#">
+    <img src="#">
+    <img src="#">
+    <img src="#">
+    <img src="#">
+  </div>
+</section>
+
+
+<div class="grid">
+  {{#each careerEvents}}
+<li class="card" aria-labelledby="event card">
+    <div class="card__filter">
+        <img class="card__photo" src="https://i1.sndcdn.com/artworks-000192685399-co64se-t500x500.jpg" alt="A man in colorful clothing with the sun behind him on a beach.">
+    </div>
+    <div class="card__container">
+        <h2>{{this.title}}</h2>
+        <time>{{this.date}}</time>
+        <p>{{this.city}}</p>
+        <p>Limit of Participants {{this.limitPax}}</p>
+        <p>Number of companies: {{this.companies}}</p>
+        <p>Price: {{this.price}} EUR</p>
+        <div class="card__buttons">
+            <a href="/careersDetails" class="card__buttons btn primary" role="button" aria-haspopup="false">
+          Details
+          <div class="card__fill"></div>
+        </a>
+            <a href="#" class="card__buttons btn secondary" role="button" aria-haspopup="false">
+          Tickets
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        </div>
+    </div>
+</li>
+{{/each}}
+</div>
