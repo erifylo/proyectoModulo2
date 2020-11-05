@@ -599,6 +599,7 @@ padding-top: 100px;
 }
 #buttondetail{
 background-color: transparent;
+margin-top: 25px;
 }
 
 .card-title {
@@ -687,7 +688,7 @@ background-color: transparent;
     margin: 0 0.4em 0.4em 0;
   }
 
-  time, p, .card__location {
+  time, .card__container p, .card__location {
     color: var(--colour-background);
     margin: 0.18em;
   }
